@@ -1,8 +1,8 @@
 // Version synced with version.json and constants.ts
 const VERSION = '17';
-const CACHE_NAME = `santehschet-v${VERSION}`;
-const STATIC_CACHE = `santehschet-static-v${VERSION}`;
-const DYNAMIC_CACHE = `santehschet-dynamic-v${VERSION}`;
+const CACHE_NAME = `elektrosmeta-v${VERSION}`;
+const STATIC_CACHE = `elektrosmeta-static-v${VERSION}`;
+const DYNAMIC_CACHE = `elektrosmeta-dynamic-v${VERSION}`;
 
 const STATIC_FILES = [
   './',
