@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/check' : '';
+const basePath = isProd ? '/voltcalc' : '';
 
 export const metadata: Metadata = {
   title: "ЭлектроСмета - Калькулятор электромонтажных работ",
