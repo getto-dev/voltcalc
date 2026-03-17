@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 // basePath используется только для GitHub Pages (при сборке)
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/check' : '';
+const basePath = isProd ? '/voltcalc' : '';
 
 const nextConfig: NextConfig = {
   output: "export",
