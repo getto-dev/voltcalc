@@ -253,7 +253,7 @@ export const SettingsSection = memo(function SettingsSection() {
           Связь с нами
         </span>
         <a
-          href="https://t.me/gettocode"
+          href="tg://resolve?domain=gettocode"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -263,7 +263,7 @@ export const SettingsSection = memo(function SettingsSection() {
           )}
         >
           <MessageCircle className="w-5 h-5 text-primary" />
-          <span>Telegram — @gettocode</span>
+          <span>Telegram</span>
         </a>
       </div>
 
