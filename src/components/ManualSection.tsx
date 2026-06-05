@@ -69,17 +69,17 @@ const NumberInput = memo(function NumberInput({
     const newValue = e.target.value;
     setDisplayValue(newValue);
 
-    if (newValue === '') {
+    if (newValue === '' || newValue === '.') {
       return;
     }
-    const parsed = parseInt(newValue);
+    const parsed = parseFloat(newValue);
     if (!Number.isNaN(parsed)) {
       onChange(parsed);
     }
   }, [onChange]);
 
   const handleBlur = useCallback(() => {
-    const parsed = parseInt(displayValue);
+    const parsed = parseFloat(displayValue);
     const finalValue = Number.isNaN(parsed) ? (min ?? 0) : parsed;
     onChange(finalValue);
     setDisplayValue(String(finalValue));
@@ -93,7 +93,8 @@ const NumberInput = memo(function NumberInput({
       <input
         id={inputId}
         type="number"
-        inputMode="numeric"
+        inputMode="decimal"
+        step="any"
         value={displayValue}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -123,7 +124,7 @@ export function ManualSection() {
     addManualItem({
       name: name.trim(),
       description: description.trim(),
-      quantity: Math.max(1, quantity),
+      quantity: Math.max(0.1, quantity),
       unit: unit || 'шт',
       price: Math.max(0, price),
       type: manualType,
@@ -178,7 +179,7 @@ export function ManualSection() {
           label="Название"
           value={name}
           onChange={setName}
-          placeholder={manualType === 'service' ? 'Установка крана...' : 'Труба PPR 20мм...'}
+          placeholder={manualType === 'service' ? 'Установка розетки...' : 'Кабель ВВГнг 3х2.5...'}
         />
 
         <FormInput
@@ -193,7 +194,7 @@ export function ManualSection() {
             label="Кол-во"
             value={quantity}
             onChange={setQuantity}
-            min={1}
+            min={0.1}
           />
 
           <FormInput
