@@ -57,6 +57,8 @@ interface AppState {
   setThemeMode: (mode: ThemeMode) => void;
   setHydrated: (state: boolean) => void;
   calculateTotals: () => Totals;
+  /** Replace items + settings atomically — used when loading a saved HTML file. */
+  loadEstimateData: (items: InvoiceItem[], settings: Settings) => void;
 }
 
 export const useAppStore = create<AppState>()(
@@ -172,6 +174,13 @@ export const useAppStore = create<AppState>()(
       calculateTotals: () => {
         const { items, settings } = get();
         return calculateTotals(items, settings.discount);
+      },
+
+      loadEstimateData: (newItems, newSettings) => {
+        set({
+          items: newItems,
+          settings: { ...newSettings },
+        });
       },
     }),
     {
